@@ -1,0 +1,3 @@
+<template>
+    Componente List
+</template>
