@@ -1,22 +1,61 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import NewTask from './components/NewTask.vue'
+import List from './components/List.vue'
+import CounterTask from './components/CounterTask.vue'
+
+import { reactive } from 'vue'
+
+const todos = reactive([
+  {
+    id:0,
+    name: 'Task 1',
+    completed: false
+  },
+  {
+    id:1,
+    name: 'Task 2',
+    completed: true
+  },
+  {
+    id:2,
+    name: 'Task 3',
+    completed: true
+  },
+  {
+    id:3,
+    name: 'Task 4',
+    completed: false
+  }
+])
+
+const classObject = reactive({
+  completed: true,
+  'text-decoration': "underline"
+})
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/users">UserList</RouterLink>
-      </nav>
-    </div>
+    <Header></Header>
   </header>
+  
+  
+  
+  
+
+ <main>
+  <NewTask></NewTask>
+  <List :todos="todos"></List>
+  <CounterTask></CounterTask>
+    
+ </main>
+  
 
   <RouterView />
 </template>

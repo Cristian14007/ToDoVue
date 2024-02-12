@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import Task from './Task.vue';
+
+const props = defineProps(['todos'])
+
+function onClick(id: number){
+    console.log(`click on task ${id}`)
+}
+</script>
+
 <template>
-    Componente List
+
+    <div v-for="todo in todos">
+      <input type="checkbox" name="" id="">
+      {{ todo.name }}
+      <button @click="onClick(todo.id)">Task</button>
+    </div>
+
 </template>
